@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.ConfigurableEnvironment;
 
 @SpringBootApplication
 public class ArquiteturaSpringApplication {
@@ -20,6 +21,10 @@ public class ArquiteturaSpringApplication {
         builder.run(args);
 
         ConfigurableApplicationContext context = builder.context();
-	}
+        ConfigurableEnvironment environment = context.getEnvironment();
+        String applicationName = environment.getProperty("spring.application.name");
+        System.out.println("Nome da aplicação: " + applicationName);
+
+    }
 
 }
