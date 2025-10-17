@@ -4,11 +4,13 @@ import com.lanam.arquiteturaSpring.montadora.Motor;
 import com.lanam.arquiteturaSpring.montadora.TipoMotor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class MontadoraConfiguration { //onde você ensina o Spring a fabricar os objetos “Montadora”, “Motor”, etc.
 
     @Bean (name = "motorAspirado") //; name opcional. O padrão é o nome do objeto
+    @Primary
     public Motor motorAspirado() {
         var motor = new Motor();
         motor.setCavalos(120);
